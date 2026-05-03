@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub Library | Digital Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; overflow-x: hidden; }
+/* NAV FIX - Biar Gak Berantakan */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgb(15, 23, 42);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-brand { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
+        .nav-brand span { color: #4f46e5; }
+        
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .a-navbar { 
+            text-decoration: none; 
+            color: #64748b; 
+            font-size: 13px; 
+            font-weight: 600; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .a-navbar:hover { color: #4f46e5; }
+        .a-navbar i { font-size: 14px; transition: 0.3s; }
+        .a-navbar:hover i { transform: scale(1.2); }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .header { text-align: center; margin-bottom: 50px; }
+        .header h1 { font-size: 32px; font-weight: 800; color: #fff; }
+        .header p { color: #64748b; margin-top: 10px; }
+
+
+        /* Update CSS Tab agar tag <a> mengikuti style sebelumnya */
+.tab { 
+    padding: 8px 20px; 
+    background: rgba(255,255,255,0.05); 
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px; 
+    font-size: 13px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    white-space: nowrap;
+    text-decoration: none; /* Ilangin garis bawah link */
+    color: #94a3b8; /* Warna default teks */
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.tab:hover {
+    background: rgba(99, 102, 241, 0.2);
+    color: #fff;
+    border-color: #6366f1;
+}
+
+.tab.active { 
+    background: #6366f1; 
+    border-color: #6366f1; 
+    color: #fff;
+}
+        /* LIBRARY GRID */
+        .lib-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .book-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #6366f1;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .category-tag {
+            position: absolute; top: 15px; left: 15px;
+            padding: 5px 12px; background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px); border-radius: 8px;
+            font-size: 10px; font-weight: 700; color: #fff;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .book-info { padding: 20px; }
+        .book-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 5px; color: #fff; }
+        .book-info p { font-size: 12px; color: #94a3b8; }
+
+        .btn-read {
+            margin-top: 15px; width: 100%; padding: 10px;
+            background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 10px; color: #818cf8; font-size: 12px; font-weight: 700;
+            transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .book-card:hover .btn-read { background: #6366f1; color: #fff; }
+
+        footer { text-align: center; padding: 60px; color: #475569; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-brand">Study<span>Hub</span></a> 
+        <div class="nav-links">
+            <a href="#" class="a-navbar"><i class="fa-solid fa-envelope"></i> CONTACT</a>
+            <a href="#" class="a-navbar"><i class="fa-solid fa-circle-info"></i> CREDIT</a>
+            <a href="dashboard.php" class="a-navbar" style="color: #4f46e5; font-weight: 700;">
+                <i class="fa-solid fa-arrow-left-long"></i> BACK
+            </a>
+        </div>
+    </nav>
+
+    <!-- SEMUA HARUS DI DALAM CONTAINER BIAR RAPI -->
+    <div class="container">
+        
+        <div class="header">
+            <h1>Digital Library.</h1>
+            <p>Pusat literasi digital buat siswa SMKN 6 Jakarta.</p>
+        </div>
+
+        <!-- TABS SEKARANG DI DALAM CONTAINER -->
+        <div class="tabs" style="display: flex; gap: 12px; margin-bottom: 40px; overflow-x: auto; padding-bottom: 10px;">
+            <a href="perpusdg.html" class="tab active">All Books</a>
+            <a href="isi.html" target="_blank" class="tab">Textbooks</a>
+            <a href="perpus/comics.html" target="_blank" class="tab">Comics</a>
+            <a href="perpus/manga.html" target="_blank" class="tab">Manga</a>
+            <a href="perpus/others.html" target="_blank" class="tab">Others</a>
+        </div>
+
+        <div class="lib-grid">
+            <!-- BUKU PELAJARAN RPL -->
+            <a href="https://repository.uniba.ac.id/1093/1/Rekayasa%20Perangkat%20Lunak.pdf" target="_blank" class="book-card">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/14/3d/00/143d00661f714ab6953390bebb8bf7b8.jpg');">
+                    <span class="category-tag">E-Book</span>
+                </div>
+                <div class="book-info">
+                    <h3>Dasar-Dasar RPL</h3>
+                    <p>Materi SMK Kelas X</p>
+                    <div class="btn-read"><i class="fa-solid fa-book-open"></i> Baca Sekarang</div>
+                </div>
+            </a>
+
+            <!-- KOMIK -->
+            <a href="https://www.webtoons.com/en/romance/tears-on-a-withered-flower/list?title_no=8135" target="_blank" class="book-card">
+                <div class="book-cover" style="background-image: url('https://th.bing.com/th/id/OIP.jG-xq-kQNs-hQmgziluoqgHaKu?w=207&h=300&c=7&r=0&o=5&dpr=1.3&pid=1.7');">
+                    <span class="category-tag">Comic</span>
+                </div>
+                <div class="book-info">
+                    <h3>Webtoon Portal</h3>
+                    <p>Kumpulan Komik Seru</p>
+                    <div class="btn-read"><i class="fa-solid fa-bolt"></i> Buka Webtoon</div>
+                </div>
+            </a>
+
+            <!-- MANGA -->
+            <a href="https://komiku.org/manga/shut-up-evil-dragon-i-dont-want-to-raise-a-child-with-you-anymore/" target="_blank" class="book-card">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/06/9b/9f/069b9f8d6b455580b82df6b95e8870f4.jpg');">
+                    <span class="category-tag">Manga</span>
+                </div>
+                <div class="book-info">
+                    <h3>Manga Romance</h3>
+                    <p>Manga & Cerita Pendek</p>
+                    <div class="btn-read"><i class="fa-solid fa-pen-nib"></i> Cari Cerita</div>
+                </div>
+            </a>
+
+            <!-- DATABASE / SQL -->
+            <a href="https://www.w3schools.com/sql/default.asp" target="_blank" class="book-card">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/1200x/ff/59/22/ff59222f8b49a24c5e08c492af7dde79.jpg');">
+                    <span class="category-tag">Tutorial</span>
+                </div>
+                <div class="book-info">
+                    <h3>Mastering SQL</h3>
+                    <p>Panduan Database Lengkap</p>
+                    <div class="btn-read"><i class="fa-solid fa-database"></i> Pelajari SQL</div>
+                </div>
+            </a>
+        </div>
+
+    </div> <!-- TUTUP CONTAINER -->
+
+    <footer>
+        &copy; 2026 StudyHub Project. All Rights Reserved by ahdankerenabiezz.
+    </footer>
+
+</body>

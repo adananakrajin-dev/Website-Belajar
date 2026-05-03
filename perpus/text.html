@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub Library | Digital Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; overflow-x: hidden; }
+/* NAV FIX - Biar Gak Berantakan */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgb(15, 23, 42);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-brand { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
+        .nav-brand span { color: #4f46e5; }
+        
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .a-navbar { 
+            text-decoration: none; 
+            color: #64748b; 
+            font-size: 13px; 
+            font-weight: 600; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .a-navbar:hover { color: #4f46e5; }
+        .a-navbar i { font-size: 14px; transition: 0.3s; }
+        .a-navbar:hover i { transform: scale(1.2); }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .header { text-align: center; margin-bottom: 50px; }
+        .header h1 { font-size: 32px; font-weight: 800; color: #fff; }
+        .header p { color: #64748b; margin-top: 10px; }
+
+
+        /* Update CSS Tab agar tag <a> mengikuti style sebelumnya */
+.tab { 
+    padding: 8px 20px; 
+    background: rgba(255,255,255,0.05); 
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px; 
+    font-size: 13px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    white-space: nowrap;
+    text-decoration: none; /* Ilangin garis bawah link */
+    color: #94a3b8; /* Warna default teks */
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.tab:hover {
+    background: rgba(99, 102, 241, 0.2);
+    color: #fff;
+    border-color: #6366f1;
+}
+
+.tab.active { 
+    background: #6366f1; 
+    border-color: #6366f1; 
+    color: #fff;
+}
+        /* LIBRARY GRID */
+        .lib-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .book-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #6366f1;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .category-tag {
+            position: absolute; top: 15px; left: 15px;
+            padding: 5px 12px; background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px); border-radius: 8px;
+            font-size: 10px; font-weight: 700; color: #fff;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .book-info { padding: 20px; }
+        .book-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 5px; color: #fff; }
+        .book-info p { font-size: 12px; color: #94a3b8; }
+
+        .btn-read {
+            margin-top: 15px; width: 100%; padding: 10px;
+            background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 10px; color: #818cf8; font-size: 12px; font-weight: 700;
+            transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .book-card:hover .btn-read { background: #6366f1; color: #fff; }
+
+        footer { text-align: center; padding: 60px; color: #475569; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-brand">Study<span>Hub</span></a> 
+        <div class="nav-links">
+            <a href="#" class="a-navbar"><i class="fa-solid fa-envelope"></i> CONTACT</a>
+            <a href="#" class="a-navbar"><i class="fa-solid fa-circle-info"></i> CREDIT</a>
+            <a href="../perpusdg.html" class="a-navbar" style="color: #4f46e5; font-weight: 700;">
+                <i class="fa-solid fa-arrow-left-long"></i> BACK
+            </a>
+        </div>
+    </nav>
+
+    <!-- SEMUA HARUS DI DALAM CONTAINER BIAR RAPI -->
+    <div class="container">
+        
+        <div class="header">
+            <h1>TextBook</h1>
+            <p>Halaman berisi TextBook yang bisa untuk dibaca.</p>
+        </div>
+
+        <!-- TABS SEKARANG DI DALAM CONTAINER -->
+        <div class="tabs" style="display: flex; gap: 12px; margin-bottom: 40px; overflow-x: auto; padding-bottom: 10px;">
+            <a href="perpustakaan.html" class="tab active">All Books</a>
+            <a href="https://books.google.com/search?q=programming+books" target="_blank" class="tab">Textbooks</a>
+            <a href="comics.html" target="_blank" class="tab">Comics</a>
+            <a href="https://mangaplus.shueisha.co.jp/" target="_blank" class="tab">Manga</a>
+            <a href="https://www.wattpad.com/" target="_blank" class="tab">Others</a>
+        </div>
+
+            <!-- GANTI BAGIAN <div class="lib-grid"> DENGAN YANG INI -->
+<div class="lib-grid">
+    
+    <!-- 1. RPL - PEMROGRAMAN WEB -->
+    <a href="https://digilib.stekom.ac.id/assets/dokumen/ebook/feb_B8uLNNrqWgUrj5qdyUnK6ryV7949c7RdhjCs8T-AlAjSqdwF-nvQTpc_1682562390.pdf" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/bb/17/1f/bb171ff3c32d00aff7620053d6b192f2.jpg');">
+            <span class="category-tag">RPL</span>
+        </div>
+        <div class="book-info">
+            <h3>Web Development</h3>
+            <p>Dasar HTML, CSS, & JS</p>
+            <div class="btn-read"><i class="fa-solid fa-code"></i> Baca Sekarang</div>
+        </div>
+    </a>
+
+    <!-- 2. DKV - DASAR DESAIN GRAFIS -->
+    <a href="https://e-training.kemnaker.go.id/asset/directory/bm/434/Mengaplikasikan%20Prinsip%20Dasar%20Desain%20(Buku%20Informasi).pdf" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/1200x/29/2a/5d/292a5d6f2e122cd8b41d80d3f64440ef.jpg');">
+            <span class="category-tag">DKV</span>
+        </div>
+        <div class="book-info">
+            <h3>Prinsip Desain</h3>
+            <p>Layout, Tipografi & Warna</p>
+            <div class="btn-read"><i class="fa-solid fa-palette"></i> Buka Materi</div>
+        </div>
+    </a>
+
+    <!-- 3. ANIMASI - DASAR 2D & 3D -->
+    <a href="https://digilib.stiestekom.ac.id/assets/dokumen/ebook/feb_a4a7793dbf37f3e1cd5ef3f526e673b46d3673e9_1642135900.pdf" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/1200x/b8/7d/5e/b87d5e0e68042a321c4cba9cff487ff8.jpg');">
+            <span class="category-tag">Animasi</span>
+        </div>
+        <div class="book-info">
+            <h3>Dunia Animasi</h3>
+            <p>Teknik Motion & Modeling</p>
+            <div class="btn-read"><i class="fa-solid fa-film"></i> Pelajari</div>
+        </div>
+    </a>
+
+    <!-- 4. BR (BISNIS RITEL) - DIGITAL MARKETING -->
+    <a href="https://digilib.stekom.ac.id/assets/dokumen/ebook/feb_preveb997_1643879437.pdf" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/1200x/a9/d6/7a/a9d67ab7b0723da88fda689373dd4afb.jpg');">
+            <span class="category-tag">Bisnis</span>
+        </div>
+        <div class="book-info">
+            <h3>Digital Marketing</h3>
+            <p>Strategi Bisnis Modern</p>
+            <div class="btn-read"><i class="fa-solid fa-cart-shopping"></i> Buka Bisnis</div>
+        </div>
+    </a>
+
+    <!-- 5. AKL (AKUNTANSI) - DASAR AKUNTANSI -->
+    <a href="https://digilib.stekom.ac.id/assets/dokumen/ebook/feb_preveb955_1643875032.pdf" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/48/c7/02/48c70282021de4f20ae17a044db9369a.jpg');">
+            <span class="category-tag">AKL</span>
+        </div>
+        <div class="book-info">
+            <h3>Pengantar Akuntansi</h3>
+            <p>Jurnal & Laporan Keuangan</p>
+            <div class="btn-read"><i class="fa-solid fa-calculator"></i> Cek Buku</div>
+        </div>
+    </a>
+
+    <!-- 6. MP (MANAJEMEN PERKANTORAN) -->
+    <a href="https://repository.uinjkt.ac.id/dspace/bitstream/123456789/82890/1/MODUL%20MANAJEMEN%20PERKANTORAN.pdf" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/32/21/39/32213931101976e91f09205027f84e5c.jpg');">
+            <span class="category-tag">MP</span>
+        </div>
+        <div class="book-info">
+            <h3>Manajemen Kantor</h3>
+            <p>Administrasi & Komunikasi</p>
+            <div class="btn-read"><i class="fa-solid fa-briefcase"></i> Baca Materi</div>
+        </div>
+    </a>
+
+</div>
+        
+        </div>
+
+    </div> <!-- TUTUP CONTAINER -->
+
+    <footer>
+        &copy; 2026 StudyHub Project. All Rights Reserved by ahdankerenabiezz.
+    </footer>
+
+</body>

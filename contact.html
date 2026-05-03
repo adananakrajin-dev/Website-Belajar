@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Creator | StudyHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        body { 
+            background-color: #f8fafc; 
+            display: flex; 
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- FIX NAVBAR AGAR TIDAK DEMPET --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: #ffffff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .nav-brand { 
+            font-size: 24px; 
+            font-weight: 800; 
+            color: #0f172a; 
+            text-decoration: none; 
+        }
+        
+        .nav-brand span { color: #4f46e5; }
+
+        /* KUNCI PERBAIKAN DI SINI */
+        .nav-links { 
+            display: flex; 
+            align-items: center; 
+            gap: 25px; /* Memberi jarak antar menu */
+        }
+
+        .a-navbar { 
+            text-decoration: none; 
+            color: #64748b; 
+            font-size: 14px; 
+            font-weight: 600; 
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Memberi jarak antara icon dan teks */
+            transition: 0.3s;
+        }
+
+        .a-navbar:hover { color: #4f46e5; }
+
+        /* CONTACT CARD */
+        .contact-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .profile-card {
+            background: #fff;
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            background: #4f46e5;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #fff;
+            border: 4px solid #f1f5f9;
+        }
+
+        .profile-card h2 { color: #0f172a; margin-bottom: 5px; font-size: 22px; }
+        .profile-card p { color: #64748b; font-size: 14px; margin-bottom: 20px; }
+
+        .info-list {
+            text-align: left;
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+        .info-item i { color: #4f46e5; width: 20px; }
+
+        /* SOSMED BUTTONS */
+        .sosmed-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .sosmed-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+            color: #fff;
+        }
+
+        .ig { background: #E1306C; }
+        .fb { background: #1877F2; }
+        .tt { background: #000000; }
+        .wa { background: #25D366; }
+
+        .sosmed-link:hover { opacity: 0.8; transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-brand">Study<span>Hub</span></div> 
+        <div class="nav-links">
+            <a href="#" class="a-navbar">
+                <i class="fa-solid fa-envelope"></i> CONTACT
+            </a>
+            
+            <a href="#" class="a-navbar">
+                <i class="fa-solid fa-circle-info"></i> CREDIT
+            </a>
+            
+            <a href="dashboard.php" class="a-navbar" style="font-weight: 700; color: #4f46e5;">
+                <i class="fa-solid fa-arrow-left-long"></i> BACK
+            </a>
+        </div>
+    </nav>
+
+    <div class="contact-container">
+        <div class="profile-card">
+            <div class="profile-img">
+                <i class="fa-solid fa-user-gear"></i>
+            </div>
+            <h2>Muhammad Ahdan</h2>
+            <p>Student</p>
+
+            <div class="info-list">
+                <div class="info-item">
+                    <i class="fa-solid fa-school"></i> SMKN 6 Jakarta
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-code"></i> Software Engineering (RPL)
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i> Jakarta Selatan, Indonesia
+                </div>
+            </div>
+
+            <div class="sosmed-grid">
+                <a href="https://instagram.com/ahdankerenabiezz" class="sosmed-link ig">
+                    <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
+                <a href="#" class="sosmed-link fb">
+                    <i class="fa-brands fa-facebook"></i> Facebook
+                </a>
+                <a href="https://www.tiktok.com/@ahdnnvc?is_from_webapp=1&sender_device=pc" class="sosmed-link tt">
+                    <i class="fa-brands fa-tiktok"></i> TikTok
+                </a>
+                <a href="#" class="sosmed-link wa">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 StudyHub Project. All Rights Reserved by ahdankerenabiezz.
+    </footer>
+
+</body>
+</html>

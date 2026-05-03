@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konsep Dasar OOP | StudyHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css)">
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-brand">Study<span>Hub</span></div> 
+        <div class="nav-links">
+            <!-- Icon Surat buat Contact -->
+            <a href="#" class="a-navbar">
+                <i class="fa-solid fa-envelope"></i> CONTACT
+            </a>
+            
+            <!-- Icon Star/Award buat Credit -->
+            <a href="#" class="a-navbar">
+                <i class="fa-solid fa-circle-info"></i> CREDIT
+            </a>
+            
+            <!-- Icon Panah buat Back -->
+            <a href="../dkrpl.html" class="a-navbar" style="font-weight: 700; color: #4f46e5;">
+                <i class="fa-solid fa-arrow-left-long"></i> BACK
+            </a>
+        </div>
+    </nav>
+
+    <div class="main-content" style="justify-content: center; display: flex; padding-top: 100px; background-color: #f4f6fb;">
+        <article class="article-container" style="max-width: 900px; width: 100%; border-radius: 24px; background: white; padding: 60px; margin-bottom: 50px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid #eef0f2;">
+            
+            <header style="margin-bottom: 40px;">
+                <h1 style="font-size: 38px; color: var(--dark); margin-bottom: 10px; font-weight: 800;">Konsep Dasar OOP</h1>
+                <p class="subtitle" style="color: #64748b; font-weight: 600; letter-spacing: 1px;">OBJECT-ORIENTED PROGRAMMING // SEMESTER 2</p>
+                <hr style="border: 0; border-top: 1px solid #e2e8f0; margin-top: 20px;">
+            </header>
+
+            <!-- BAB 1: Pengenalan -->
+            <section style="margin-bottom: 50px;">
+                <h2 style="font-size: 24px; color: var(--dark); margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
+                    <i class="fas fa-cube" style="color: var(--primary);"></i> Bab 1: Apa itu OOP?
+                </h2>
+                <p style="line-height: 1.8; color: #334155;">OOP adalah paradigma pemrograman yang berorientasi kepada <strong>objek</strong>. Semua data dan fungsi dibungkus dalam kelas-kelas. Jika prosedural fokus pada <em>langkah</em>, OOP fokus pada <em>interaksi antar objek</em>.</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        <strong style="color: var(--primary);"><i class="fas fa-scroll"></i> Class</strong>
+                        <p style="font-size: 14px; margin-top: 5px;">Cetak biru atau denah (blueprint).</p>
+                    </div>
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        <strong style="color: var(--secondary);"><i class="fas fa-house-user"></i> Object</strong>
+                        <p style="font-size: 14px; margin-top: 5px;">Bentuk nyata dari denah (Rumah).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BAB 2: 4 Pilar -->
+            <section style="margin-bottom: 50px;">
+                <h2 style="font-size: 24px; color: var(--dark); margin-bottom: 20px;"><i class="fas fa-columns" style="color: var(--primary); margin-right: 12px;"></i> Bab 2: Empat Pilar Utama</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div style="padding: 15px; border: 1px solid #eef0f2; border-radius: 10px;">
+                        <strong style="color: #0ea5e9;">1. Encapsulation</strong>
+                        <p style="font-size: 13px; color: #64748b;">Menyembunyikan data (Private).</p>
+                    </div>
+                    <div style="padding: 15px; border: 1px solid #eef0f2; border-radius: 10px;">
+                        <strong style="color: #8b5cf6;">2. Inheritance</strong>
+                        <p style="font-size: 13px; color: #64748b;">Pewarisan sifat ke kelas anak.</p>
+                    </div>
+                    <div style="padding: 15px; border: 1px solid #eef0f2; border-radius: 10px;">
+                        <strong style="color: #f59e0b;">3. Polymorphism</strong>
+                        <p style="font-size: 13px; color: #64748b;">Satu objek, banyak bentuk.</p>
+                    </div>
+                    <div style="padding: 15px; border: 1px solid #eef0f2; border-radius: 10px;">
+                        <strong style="color: #10b981;">4. Abstraction</strong>
+                        <p style="font-size: 13px; color: #64748b;">Hanya menampilkan fungsi penting.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BAB 3: Code Implementation -->
+            <section style="margin-bottom: 50px;">
+                <h2 style="font-size: 24px; color: var(--dark); margin-bottom: 20px;"><i class="fas fa-code" style="color: var(--primary); margin-right: 12px;"></i> Bab 3: Implementasi C#</h2>
+                <div class="code-box" style="background: #0f172a; color: #f8fafc; padding: 30px; border-radius: 16px; font-family: 'Fira Code', monospace; font-size: 14px; line-height: 1.6; border: 1px solid #1e293b; overflow-x: auto;">
+                    <span style="color: #94a3b8;">// Definisi Class</span><br>
+                    <span style="color: #f472b6;">class</span> <span style="color: #38bdf8;">Mobil</span> {<br>
+                    &nbsp;&nbsp;<span style="color: #f472b6;">public string</span> warna;<br>
+                    &nbsp;&nbsp;<span style="color: #f472b6;">public void</span> Melaju() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span style="color: #fbbf24;">"Mobil berjalan..."</span>);<br>
+                    &nbsp;&nbsp;}<br>
+                    }<br><br>
+                    <span style="color: #94a3b8;">// Membuat Object (Instance)</span><br>
+                    Mobil mobilBaru = <span style="color: #f472b6;">new</span> Mobil();<br>
+                    mobilBaru.Melaju();
+                </div>
+            </section>
+
+            <!-- Tugas -->
+            <section class="task-card" style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 40px; border-radius: 20px;">
+                <h3 style="color: var(--dark); margin-bottom: 25px;"><i class="fas fa-tasks" style="color: var(--secondary); margin-right: 10px;"></i> Tugas & Evaluasi</h3>
+                
+                <h4 style="font-size: 16px; margin-bottom: 10px;">Tugas Analogi: Kucing</h4>
+                <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; margin-bottom: 30px;">
+                    <thead style="background: var(--primary); color: white;">
+                        <tr><th style="padding: 10px;">Atribut (Data)</th><th style="padding: 10px;">Metode (Perilaku)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="padding: 10px; border-bottom: 1px solid #eee;">Warna Bulu</td><td style="padding: 10px; border-bottom: 1px solid #eee;">Mengeong()</td></tr>
+                        <tr><td style="padding: 10px;">Jenis Ras</td><td style="padding: 10px;">Berlari()</td></tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Kuis: Konsep pewarisan disebut?</strong></p>
+                <div style="background: white; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; margin-top: 10px; font-weight: 600; color: var(--primary); border-left: 4px solid var(--primary);">
+                    Jawaban: B. Inheritance
+                </div>
+            </section>
+
+            <footer style="text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 12px;">
+                &copy; 2026 StudyHub Project. All Rights Reserved by ahdankerenabiezz.
+            </footer>
+        </article>
+    </div>
+</body>
+</html>

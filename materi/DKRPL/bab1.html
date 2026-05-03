@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 1: Logika & Algoritma | StudyHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css)">
+    <!-- Mengarah ke style.css lo yang ada warna birunya -->
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-brand">Study<span>Hub</span></div> 
+        <div class="nav-links">
+            <!-- Icon Surat buat Contact -->
+            <a href="#" class="a-navbar">
+                <i class="fa-solid fa-envelope"></i> CONTACT
+            </a>
+            
+            <!-- Icon Star/Award buat Credit -->
+            <a href="#" class="a-navbar">
+                <i class="fa-solid fa-circle-info"></i> CREDIT
+            </a>
+            
+            <!-- Icon Panah buat Back -->
+            <a href="../dkrpl.html" class="a-navbar" style="font-weight: 700; color: #4f46e5;">
+                <i class="fa-solid fa-arrow-left-long"></i> BACK
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content dibuat Full Width & Centered -->
+    <div class="main-content" style="justify-content: center; display: flex; padding-top: 100px;">
+        <!-- Container materi dibungkus kotak besar (Dashboard Style) -->
+        <article class="article-container" style="max-width: 900px; width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
+            
+            <header style="margin-bottom: 40px;">
+                <h1 style="font-size: 38px; color: var(--dark); margin-bottom: 10px;">Logika dan Algoritma Dasar</h1>
+                <p class="subtitle" style="color: var(--text-muted);">MATERI DASAR KEAHLIAN REKAYASA PERANGKAT LUNAK</p>
+                <hr style="border: 0; border-top: 1px solid #eee; margin-top: 20px;">
+            </header>
+
+            <section id="pengertian" style="margin-bottom: 50px;">
+                <h2><i class="fas fa-brain" style="color: var(--primary); margin-right: 10px;"></i> A. Pengertian Logika</h2>
+                <p>Logika adalah cara berpikir yang sistematis, rasional, dan terstruktur untuk menentukan apakah suatu pernyataan benar atau salah.</p>
+                <div class="example-box" style="background: #f1f5f9; border-left: 5px solid var(--primary); padding: 20px; border-radius: 8px; margin-top: 15px;">
+                    <strong>Contoh Sederhana:</strong><br>
+                    Jika hari ini hujan, maka aku harus membawa payung.
+                </div>
+            </section>
+
+            <section id="operasi" style="margin-bottom: 50px;">
+                <h2><i class="fas fa-calculator" style="color: var(--primary); margin-right: 10px;"></i> C. Operasi Logika Dasar</h2>
+                <p>Operasi ini digunakan untuk mengambil keputusan dalam kode program.</p>
+                
+                <h4 style="margin: 20px 0 10px;">Tabel Kebenaran AND</h4>
+                <table class="logic-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                    <thead style="background: var(--primary); color: white;">
+                        <tr><th style="padding: 12px;">A</th><th style="padding: 12px;">B</th><th style="padding: 12px;">Hasil (AND)</th></tr>
+                    </thead>
+                    <tbody style="text-align: center;">
+                        <tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px;">True</td><td style="padding: 12px;">True</td><td style="padding: 12px;"><strong>True</strong></td></tr>
+                        <tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px;">True</td><td style="padding: 12px;">False</td><td style="padding: 12px;">False</td></tr>
+                        <tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px;">False</td><td style="padding: 12px;">True</td><td style="padding: 12px;">False</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="algoritma" style="margin-bottom: 50px;">
+                <h2><i class="fas fa-stream" style="color: var(--primary); margin-right: 10px;"></i> D. Pengertian Algoritma</h2>
+                <p>Algoritma adalah urutan langkah-langkah logis untuk menyelesaikan masalah. Langkah-langkahnya harus jelas, berurutan, dan berhingga.</p>
+            </section>
+
+            <section id="struktur" style="margin-bottom: 50px;">
+                <h2><i class="fas fa-code" style="color: var(--primary); margin-right: 10px;"></i> G. Penulisan Pseudocode</h2>
+                <p>Contoh penulisan logika menentukan angka genap/ganjil:</p>
+                <div class="code-box" style="background: #1e293b; color: #f8fafc; padding: 25px; border-radius: 12px; font-family: 'Consolas', monospace; margin-top: 15px;">
+                    INPUT angka<br>
+                    IF angka MOD 2 == 0 THEN<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;OUTPUT "Bilangan Genap"<br>
+                    ELSE<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;OUTPUT "Bilangan Ganjil"<br>
+                    ENDIF
+                </div>
+            </section>
+
+            <section id="latihan" class="task-card" style="background: #fafafa; padding: 30px; border-radius: 20px; border: 1px solid #eee;">
+                <h3 style="margin-bottom: 20px;"><i class="fas fa-edit" style="color: var(--secondary);"></i> Latihan Soal</h3>
+                <p><strong>1. Apa yang dimaksud dengan Algoritma?</strong></p>
+                <div class="quiz-option" style="background: white; border: 1px solid #ddd; padding: 12px 20px; border-radius: 10px; margin: 10px 0; cursor: pointer; transition: 0.3s;">a. Bahasa pemrograman</div>
+                <div class="quiz-option" style="background: white; border: 1px solid #ddd; padding: 12px 20px; border-radius: 10px; margin: 10px 0; cursor: pointer; transition: 0.3s;">b. Urutan langkah logis penyelesaian masalah</div>
+                
+                <div class="practice-area" style="margin-top: 30px; padding-top: 20px; border-top: 2px dashed #eee;">
+                    <h3 style="font-size: 18px;"><i class="fas fa-project-diagram" style="color: var(--primary);"></i> Tugas Praktik</h3>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li><strong>Tugas 1:</strong> Buatlah algoritma langkah-langkah berangkat ke sekolah!</li>
+                        <li><strong>Tugas 2:</strong> Buat flowchart menentukan nilai grade A, B, C, atau D.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <footer class="materi-footer" style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; color: #94a3b8; font-size: 13px;">
+                &copy; 2026 StudyHub Project. All Rights Reserved by ahdankerenabiezz.
+            </footer>
+        </article>
+    </div>
+</body>
+</html>

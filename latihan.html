@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Campuran | StudyHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
+
+         /* NAV FIX - Biar Gak Berantakan */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-brand { font-size: 24px; font-weight: 800; color: #0f172a; text-decoration: none; }
+        .nav-brand span { color: #4f46e5; }
+        
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .a-navbar { 
+            text-decoration: none; 
+            color: #64748b; 
+            font-size: 13px; 
+            font-weight: 600; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .a-navbar:hover { color: #4f46e5; }
+        .a-navbar i { font-size: 14px; transition: 0.3s; }
+        .a-navbar:hover i { transform: scale(1.2); }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .header { text-align: center; margin-bottom: 50px; }
+        .header h1 { font-size: 32px; font-weight: 800; color: #0f172a; }
+        .header p { color: #64748b; margin-top: 10px; }
+
+        /* GRID SOAL */
+        .quiz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+
+        .card { background: #fff; border-radius: 16px; padding: 20px; border: 1px solid #e2e8f0; transition: 0.3s; }
+        .card:hover { border-color: #4f46e5; box-shadow: 0 10px 20px rgba(79, 70, 229, 0.05); }
+
+        .badge { 
+            display: inline-block; padding: 4px 10px; border-radius: 6px; 
+            font-size: 10px; font-weight: 700; text-transform: uppercase; margin-bottom: 15px;
+        }
+        .bg-rpl { background: #eef2ff; color: #4338ca; }
+        .bg-umum { background: #f1f5f9; color: #475569; }
+        .bg-exact { background: #fff7ed; color: #c2410c; }
+
+        .question-text { font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 15px; }
+        
+        .ans-group { display: flex; flex-direction: column; gap: 8px; }
+        .ans-item {
+            display: flex; align-items: center; padding: 10px 12px;
+            background: #f8fafc; border: 1px solid #f1f5f9; border-radius: 8px;
+            cursor: pointer; font-size: 13px; transition: 0.2s;
+        }
+        .ans-item:hover { background: #eff6ff; }
+        .ans-item input { margin-right: 10px; accent-color: #4f46e5; }
+
+        .submit-all {
+            margin-top: 50px; padding: 18px; width: 100%;
+            background: #4f46e5; color: #fff; border: none; border-radius: 12px;
+            font-weight: 700; font-size: 16px; cursor: pointer; transition: 0.3s;
+        }
+        .submit-all:hover { background: #3730a3; box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2); }
+
+        footer { text-align: center; padding: 50px; color: #94a3b8; font-size: 11px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-brand">Study<span>Hub</span></a> 
+        <div class="nav-links">
+            <a href="#" class="a-navbar"><i class="fa-solid fa-envelope"></i> CONTACT</a>
+            <a href="#" class="a-navbar"><i class="fa-solid fa-circle-info"></i> CREDIT</a>
+            <a href="dashboard.php" class="a-navbar" style="color: #4f46e5; font-weight: 700;">
+                <i class="fa-solid fa-arrow-left-long"></i> BACK
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Daily Quiz</h1>
+            <p>11 Materi Campuran untuk Latihan Harian</p>
+        </div>
+
+        <form class="quiz-grid">
+            
+            <!-- 1. MTK -->
+            <div class="card">
+                <span class="badge bg-exact">Matematika</span>
+                <p class="question-text">Hasil dari $3^{2} + 4^{2}$ adalah...</p>
+                <div class="ans-group">
+                    <label class="ans-item"><input type="radio" name="mtk"> 25</label>
+                    <label class="ans-item"><input type="radio" name="mtk"> 12</label>
+                    <label class="ans-item"><input type="radio" name="mtk"> 49</label>
+                </div>
+            </div>
+
+            <!-- 2. IPAS -->
+            <div class="card">
+                <span class="badge bg-exact">IPAS</span>
+                <p class="question-text">Komponen biotik dalam suatu ekosistem adalah...</p>
+                <div class="ans-group">
+                    <label class="ans-item"><input type="radio" name="ipas"> Tanah & Air</label>
+                    <label class="ans-item"><input type="radio" name="ipas"> Tumbuhan & Hewan</label>
+                    <label class="ans-item"><input type="radio" name="ipas"> Sinar Matahari</label>
+                </div>
+            </div>
+
+            <!-- 3. DK RPL -->
+            <div class="card">
+                <span class="badge bg-rpl">Dasar Program RPL</span>
+                <p class="question-text">Manakah urutan siklus pengembangan software yang benar?</p>
+                <div class="ans-group">
+                    <label class="ans-item"><input type="radio" name="dkrpl"> Analisis - Desain - Coding - Testing</label>
+                    <label class="ans-item"><input type="radio" name="dkrpl"> Coding - Analisis - Desain</label>
+                </div>
+            </div>
+
+            <!-- 4. PENDIDIKAN PANCASILA -->
+            <div class="card">
+                <span class="badge bg-umum">Pend. Pancasila</span>
+                <p class="question-text">Sila ketiga Pancasila dilambangkan dengan...</p>
+                <div class="ans-group">
+                    <label class="ans-item"><input type="radio" name="pancasila"> Bintang</label>
+                    <label class="ans-item"><input type="radio" name="pancasila"> Pohon Beringin</label>
+                    <label class="ans-item"><input type="radio" name="pancasila"> Rantai</label>
+                </div>
+            </div>
+
+            <!-- 5. BAHASA INDONESIA -->
+            <div class="card">
+                <span class="badge bg-umum">Bahasa Indonesia</span>
+                <p class="question-text">Inti dari sebuah paragraf disebut dengan...</p>
+                <div class="ans-group">
+                    <label class="ans-item"><input type="radio" name="bi"> Ide Pokok</label>
+                    <label class="ans-item"><input type="radio" name="bi"> Kalimat Penjelas</label>
+                </div>
+            </div>
+
+            <!-- 6. BAHASA INGGRIS -->
+            <div class="card">
+                <span class="badge bg-umum">Bahasa Inggris</span>
+                <p class="question-text">"I ... a student at SMKN 6 Jakarta."</p>
+                <div class="ans-group">
+                    <label class="ans-item"><input type="radio" name="bing"> Is</label>
+                    <label class="ans-item"><input type="radio" name="bing"> Are</label>
+                    <label class="ans-item"><input type="radio" name="bing"> Am</label>
+                </div>
+            </div>
+
+            <!-- 7. PAI -->
+            <div class="card">
+                <span class="badge bg-umum">PAI</span>
+                <p class="question-text">Sifat wajib Rasul yang berarti "Dapat dipercaya" adalah...</p>
+                <div class="ans-group">
+                    <label class="ans-item"><input type="radio" name="pai"> Amanah</label>
+                    <label class="ans-item"><input type="radio" name="pai"> Fathonah</label>
+                    <label class="ans-item"><input type="radio" name="pai"> Tabligh</label>
+                </div>
+            </div>
+
+            <!-- 8. PJOK -->
+            <div class="card">
+                <span class="badge bg-umum">Penjaskes</span>
+                <p class="question-text">Latihan 'Push Up' bertujuan untuk melatih kekuatan otot...</p>
+                <div class="ans-group">
+                    <label class="ans-item"><input type="radio" name="pjok"> Kaki</label>
+                    <label class="ans-item"><input type="radio" name="pjok"> Lengan & Dada</label>
+                    <label class="ans-item"><input type="radio" name="pjok"> Perut</label>
+                </div>
+            </div>
+
+            <!-- 9. SENI BUDAYA -->
+            <div class="card">
+                <span class="badge bg-umum">Seni Budaya</span>
+                <p class="question-text">Unsur terkecil dalam sebuah karya seni rupa adalah...</p>
+                <div class="ans-group">
+                    <label class="ans-item"><input type="radio" name="seni"> Garis</label>
+                    <label class="ans-item"><input type="radio" name="seni"> Titik</label>
+                    <label class="ans-item"><input type="radio" name="seni"> Bidang</label>
+                </div>
+            </div>
+
+            <!-- 10. INFORMATIKA -->
+            <div class="card">
+                <span class="badge bg-rpl">Informatika</span>
+                <p class="question-text">Berpikir secara sistematis untuk memecahkan masalah disebut...</p>
+                <div class="ans-group">
+                    <label class="ans-item"><input type="radio" name="info"> Computational Thinking</label>
+                    <label class="ans-item"><input type="radio" name="info"> Coding</label>
+                </div>
+            </div>
+
+            <!-- 11. SEJARAH -->
+            <div class="card">
+                <span class="badge bg-umum">Sejarah</span>
+                <p class="question-text">Teks Proklamasi Indonesia dibacakan pada tanggal...</p>
+                <div class="ans-group">
+                    <label class="ans-item"><input type="radio" name="sejarah"> 17 Agustus 1945</label>
+                    <label class="ans-item"><input type="radio" name="sejarah"> 1 Juni 1945</label>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="badge bg-umum">Random</span>
+                <p class="question-text">Kenapa hukum di Indonesia tumpul ke atas tajam ke bawah?...</p>
+                <div class="ans-group">
+                    <label class="ans-item"><input type="radio" name="sejarah"> Hukum bisa dibeli</label>
+                    <label class="ans-item"><input type="radio" name="sejarah"> Hukum bisa dijual</label>
+                </div>
+            </div>
+        
+        </form>
+
+        <button type="button" class="submit-all" onclick="alert('Skor: 100/100!')">CEK HASIL QUIZ</button>
+    </div>
+
+    <footer>
+        &copy; 2026 StudyHub Project. All Rights Reserved by ahdankerenabiezz.
+    </footer>
+
+</body>
+</html>

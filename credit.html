@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credits & Licensing | StudyHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        body { 
+            background-color: #0f172a; /* Dark mode biar keren */
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-brand { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
+        .nav-brand span { color: #4f46e5; }
+        .a-navbar { text-decoration: none; color: #94a3b8; font-size: 14px; font-weight: 600; transition: 0.3s; }
+        .a-navbar:hover { color: #4f46e5; }
+
+        .credit-wrapper {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header-section h1 { font-size: 42px; font-weight: 800; margin-bottom: 10px; }
+        .header-section p { color: #94a3b8; font-size: 18px; }
+
+        .legal-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 24px;
+            margin-bottom: 30px;
+        }
+
+        .legal-card h3 { 
+            font-size: 20px; 
+            color: #4f46e5; 
+            margin-bottom: 20px; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        }
+
+        .legal-text {
+            color: #cbd5e1;
+            font-size: 15px;
+            text-align: justify;
+        }
+
+        .highlight { color: #fff; font-weight: 600; }
+
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .badge i { font-size: 24px; margin-bottom: 10px; color: #4f46e5; }
+        .badge p { font-size: 13px; font-weight: 600; }
+
+        footer { text-align: center; padding: 40px; color: #64748b; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="materi_dkrpl.html" class="nav-brand">Study<span>Hub</span></a> 
+        <div class="nav-links">
+            <a href="dashboard.php" class="a-navbar"><i class="fa-solid fa-arrow-left"></i> BACK</a>
+        </div>
+    </nav>
+
+    <div class="credit-wrapper">
+        <div class="header-section">
+            <h1>Credits.</h1>
+            <p>Penghargaan dan Ketentuan Penggunaan Aplikasi</p>
+        </div>
+
+        <div class="legal-card">
+            <h3><i class="fa-solid fa-shield-halved"></i> Copyright Notice</h3>
+            <p class="legal-text">
+                Seluruh materi, kode program, dan desain grafis dalam aplikasi <span class="highlight">StudyHub</span> adalah hak cipta milik <span class="highlight">Muhammad Ahdan</span>. 
+                Dibuat sebagai bagian dari proyek pendidikan di <span class="highlight">SMKN 6 Jakarta Selatan</span>, jurusan Rekayasa Perangkat Lunak (RPL). 
+                Penggunaan aset tanpa izin untuk kepentingan komersial sangat dilarang sesuai dengan Undang-Undang Hak Cipta yang berlaku.
+            </p>
+        </div>
+
+        <div class="legal-card">
+            <h3><i class="fa-solid fa-code-branch"></i> Technology Stack</h3>
+            <div class="badge-grid">
+                <div class="badge">
+                    <i class="fa-brands fa-html5"></i>
+                    <p>HTML5 & CSS3</p>
+                </div>
+                <div class="badge">
+                    <i class="fa-brands fa-php"></i>
+                    <p>PHP Server Side</p>
+                </div>
+                <div class="badge">
+                    <i class="fa-solid fa-font-awesome"></i>
+                    <p>Font Awesome</p>
+                </div>
+                <div class="badge">
+                    <i class="fa-solid fa-robot"></i>
+                    <p>AI Collaboration</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="legal-card">
+            <h3><i class="fa-solid fa-heart"></i> Special Thanks</h3>
+            <p class="legal-text">
+                Terima kasih kepada para pengajar RPL SMKN 6 Jakarta: <span class="highlight">Bpk. Slamet Sutresno, Ibu Apria Sri Rohani, Bpk. Purnama Hadi S, dan Ibu Anggrila Musfarannis</span> atas bimbingan materinya. 
+                Serta apresiasi untuk <span class="highlight">myself</span> atas dukungan semangatnya setiap hari.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 StudyHub Project. All Rights Reserved by ahdankerenabiezz.
+    </footer>
+
+</body>

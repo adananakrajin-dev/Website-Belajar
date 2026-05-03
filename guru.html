@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Discussion | StudyHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #f1f5f9; color: #1e293b; line-height: 1.6; }
+
+        /* NAV FIX - Biar Gak Berantakan */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-brand { font-size: 24px; font-weight: 800; color: #0f172a; text-decoration: none; }
+        .nav-brand span { color: #4f46e5; }
+        
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .a-navbar { 
+            text-decoration: none; 
+            color: #64748b; 
+            font-size: 13px; 
+            font-weight: 600; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .a-navbar:hover { color: #4f46e5; }
+        .a-navbar i { font-size: 14px; transition: 0.3s; }
+        .a-navbar:hover i { transform: scale(1.2); }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .header { text-align: center; margin-bottom: 50px; }
+        .header h1 { font-size: 32px; font-weight: 800; color: #0f172a; }
+        .header p { color: #64748b; margin-top: 10px; }
+
+        .section-title { 
+            font-size: 18px; font-weight: 700; color: #4f46e5; 
+            margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0;
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .teacher-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px;
+        }
+
+        .teacher-card {
+            background: #fff; padding: 15px; border-radius: 12px; text-decoration: none;
+            color: inherit; display: flex; align-items: center; gap: 12px;
+            border: 1px solid #e2e8f0; transition: 0.3s;
+        }
+        .teacher-card:hover { 
+            transform: translateY(-3px); border-color: #25d366; 
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); 
+        }
+
+        .teacher-avatar {
+            width: 45px; height: 45px; background: #eef2ff; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; color: #4f46e5;
+        }
+
+        .teacher-info h3 { font-size: 13px; font-weight: 700; color: #1e293b; }
+        .teacher-info p { font-size: 11px; color: #64748b; font-weight: 600; margin-top: 2px; }
+        .wa-icon { margin-left: auto; color: #25d366; font-size: 18px; opacity: 0.6; }
+        .teacher-card:hover .wa-icon { opacity: 1; }
+
+        footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-brand">Study<span>Hub</span></a> 
+        <div class="nav-links">
+            <a href="#" class="a-navbar"><i class="fa-solid fa-envelope"></i> CONTACT</a>
+            <a href="#" class="a-navbar"><i class="fa-solid fa-circle-info"></i> CREDIT</a>
+            <a href="dashboard.php" class="a-navbar" style="color: #4f46e5; font-weight: 700;">
+                <i class="fa-solid fa-arrow-left-long"></i> BACK
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Daftar Guru & Staf</h1>
+            <p>Klik kartu untuk memulai diskusi melalui WhatsApp</p>
+        </div>
+
+        <!-- JURUSAN RPL (PRIORITAS) -->
+        <div class="section-title"><i class="fa-solid fa-code"></i> PRODUKTIF RPL</div>
+        <div class="teacher-grid">
+            <a href="https://wa.me/6282328660664" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-laptop-code"></i></div>
+                <div class="teacher-info"><h3>Apria Sri Rohani, S.Kom.</h3><p>PROD. RPL</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/6281999121110" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-microchip"></i></div>
+                <div class="teacher-info"><h3>Slamet Sutresno, M.Pd.</h3><p>PROD. RPL</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/6282111993129" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-database"></i></div>
+                <div class="teacher-info"><h3>Purnama Hadi Setiawan, S.Kom.</h3><p>PROD. RPL</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/6281296920743" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-terminal"></i></div>
+                <div class="teacher-info"><h3>Anggrila Musfarannis, S.Kom.</h3><p>PROD. RPL</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+        </div>
+
+        <!-- MANAJEMEN SEKOLAH -->
+        <div class="section-title"><i class="fa-solid fa-user-shield"></i> MANAJEMEN SEKOLAH</div>
+        <div class="teacher-grid">
+            <a href="https://wa.me/62812" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                <div class="teacher-info"><h3>Encep Kusmawan, M.Pd.</h3><p>KEPALA SEKOLAH</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/62812" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-users-gear"></i></div>
+                <div class="teacher-info"><h3>Komarudin, S.Ag</h3><p>WAKIL KEPALA SEKOLAH</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/62812" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-users-gear"></i></div>
+                <div class="teacher-info"><h3>Indri Hayatunnuffus, M.Pd.</h3><p>WAKIL KEPALA SEKOLAH</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/6281586727755" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-users-gear"></i></div>
+                <div class="teacher-info"><h3>Latifah Budiarsih, S.Pd.</h3><p>WAKIL KEPALA SEKOLAH</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/6287777828111" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-users-gear"></i></div>
+                <div class="teacher-info"><h3>Ahmad Baidawi, S.Pd.</h3><p>WAKIL KEPALA SEKOLAH</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+        </div>
+
+        <!-- MATA PELAJARAN UMUM -->
+        <div class="section-title"><i class="fa-solid fa-book-open"></i> GURU MATA PELAJARAN</div>
+        <div class="teacher-grid">
+            <a href="https://wa.me/6287777828111" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-p"></i></div>
+                <div class="teacher-info"><h3>Ahmad Baidawi, S.Pd.</h3><p>PEND. PANCASILA</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/62812" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-flask"></i></div>
+                <div class="teacher-info"><h3>Bimo Sidiq Purnomo, S.Pd.</h3><p>IPAS</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/628159345474" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-calculator"></i></div>
+                <div class="teacher-info"><h3>Muzn Mubarak, S.Pd.</h3><p>MATEMATIKA</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/62895607479438" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-language"></i></div>
+                <div class="teacher-info"><h3>Wasi Ikhsan Dimasyqi, S.Pd.</h3><p>BAHASA INGGRIS</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/6281288802032" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-language"></i></div>
+                <div class="teacher-info"><h3>Olis Suharlaedani, S.Pd.</h3><p>BAHASA INDONESIA</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/62812" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-mosque"></i></div>
+                <div class="teacher-info"><h3>Hilaliyah, M.Pd.</h3><p>PAI</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/62812" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-dumbbell"></i></div>
+                <div class="teacher-info"><h3>Bimo Sidiq Purnomo, S.Pd.</h3><p>PENJASKES</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/6283891610367" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-hands-holding-child"></i></div>
+                <div class="teacher-info"><h3>Imam Ramdhani W, S.Pd.</h3><p>BK</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+        </div>
+
+        <!-- JURUSAN LAIN (PELENGKAP) -->
+        <div class="section-title"><i class="fa-solid fa-briefcase"></i> JURUSAN LAIN</div>
+        <div class="teacher-grid">
+            <a href="https://wa.me/62812" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-bullhorn"></i></div>
+                <div class="teacher-info"><h3>Larobbi'u Muhamad, M.Pd.</h3><p>PROD. PEMASARAN</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/62812" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-camera"></i></div>
+                <div class="teacher-info"><h3>Yunita Adriani, S.Pd.</h3><p>PROD. DKV</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/62812" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-money-bill-wave"></i></div>
+                <div class="teacher-info"><h3>Putri Priyatin, S.Pd.</h3><p>PROD. AKL</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+            <a href="https://wa.me/62812" class="teacher-card">
+                <div class="teacher-avatar"><i class="fa-solid fa-money-bill-wave"></i></div>
+                <div class="teacher-info"><h3>Teguh Santoso, S.Ds.</h3><p>PROD. AKL</p></div>
+                <i class="fa-brands fa-whatsapp wa-icon"></i>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 StudyHub Project. All Rights Reserved by ahdankerenabiezz.
+    </footer>
+
+</body>
+</html>

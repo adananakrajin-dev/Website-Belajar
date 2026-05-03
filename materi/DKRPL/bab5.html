@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dasar Basis Data & SQL | StudyHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css)">
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-brand">Study<span>Hub</span></div> 
+        <div class="nav-links">
+            <!-- Icon Surat buat Contact -->
+            <a href="#" class="a-navbar">
+                <i class="fa-solid fa-envelope"></i> CONTACT
+            </a>
+            
+            <!-- Icon Star/Award buat Credit -->
+            <a href="#" class="a-navbar">
+                <i class="fa-solid fa-circle-info"></i> CREDIT
+            </a>
+            
+            <!-- Icon Panah buat Back -->
+            <a href="../dkrpl.html" class="a-navbar" style="font-weight: 700; color: #4f46e5;">
+                <i class="fa-solid fa-arrow-left-long"></i> BACK
+            </a>
+        </div>
+    </nav>
+
+    <div class="main-content" style="justify-content: center; display: flex; padding-top: 100px; background-color: #f4f6fb;">
+        <article class="article-container" style="max-width: 900px; width: 100%; border-radius: 24px; background: white; padding: 60px; margin-bottom: 50px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid #eef0f2;">
+            
+            <header style="margin-bottom: 40px;">
+                <h1 style="font-size: 38px; color: var(--dark); margin-bottom: 10px; font-weight: 800;">Dasar Basis Data & SQL</h1>
+                <p class="subtitle" style="color: #64748b; font-weight: 600; letter-spacing: 1px;">DATABASE MANAGEMENT // SMK KELAS X</p>
+                <hr style="border: 0; border-top: 1px solid #e2e8f0; margin-top: 20px;">
+            </header>
+
+            <!-- BAB 1: Relasional -->
+            <section style="margin-bottom: 50px;">
+                <h2 style="font-size: 24px; color: var(--dark); margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
+                    <i class="fas fa-database" style="color: var(--primary);"></i> Bab 1: Basis Data Relasional
+                </h2>
+                <p style="line-height: 1.8; color: #334155;">Basis data relasional mengorganisir data ke dalam tabel yang saling berhubungan menggunakan kunci (keys).</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div style="background: #fdf2f2; padding: 20px; border-radius: 12px; border: 1px solid #fee2e2;">
+                        <strong style="color: #dc2626;"><i class="fas fa-key"></i> Primary Key (PK)</strong>
+                        <p style="font-size: 13px; margin-top: 5px;">Identitas unik tiap baris (Contoh: ID_Siswa).</p>
+                    </div>
+                    <div style="background: #eff6ff; padding: 20px; border-radius: 12px; border: 1px solid #dbeafe;">
+                        <strong style="color: #2563eb;"><i class="fas fa-link"></i> Foreign Key (FK)</strong>
+                        <p style="font-size: 13px; margin-top: 5px;">Penghubung antar tabel yang menunjuk ke PK.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BAB 2: SQL Kategori -->
+            <section style="margin-bottom: 50px;">
+                <h2 style="font-size: 24px; color: var(--dark); margin-bottom: 20px;"><i class="fas fa-layer-group" style="color: var(--primary); margin-right: 12px;"></i> Bab 2: Kategori Perintah SQL</h2>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px; padding: 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;">
+                        <strong style="display: block; margin-bottom: 10px;">DDL (Definition)</strong>
+                        <ul style="font-size: 13px; padding-left: 15px; color: #64748b;">
+                            <li>CREATE (Buat)</li>
+                            <li>ALTER (Ubah Struktur)</li>
+                            <li>DROP (Hapus Tabel)</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 200px; padding: 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;">
+                        <strong style="display: block; margin-bottom: 10px;">DML (Manipulation)</strong>
+                        <ul style="font-size: 13px; padding-left: 15px; color: #64748b;">
+                            <li>INSERT (Tambah)</li>
+                            <li>SELECT (Tampil)</li>
+                            <li>UPDATE (Edit Data)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BAB 3: Query Dasar -->
+            <section style="margin-bottom: 50px;">
+                <h2 style="font-size: 24px; color: var(--dark); margin-bottom: 20px;"><i class="fas fa-terminal" style="color: var(--primary); margin-right: 12px;"></i> Bab 3: Implementasi Query</h2>
+                <div class="code-box" style="background: #0f172a; color: #f8fafc; padding: 30px; border-radius: 16px; font-family: 'Fira Code', monospace; font-size: 14px; line-height: 1.6; border: 1px solid #1e293b;">
+                    <span style="color: #94a3b8;">-- Membuat Tabel</span><br>
+                    <span style="color: #f472b6;">CREATE TABLE</span> siswa (<br>
+                    &nbsp;&nbsp;id_siswa <span style="color: #38bdf8;">INT PRIMARY KEY</span>,<br>
+                    &nbsp;&nbsp;nama <span style="color: #38bdf8;">VARCHAR(100)</span>,<br>
+                    &nbsp;&nbsp;jurusan <span style="color: #38bdf8;">VARCHAR(50)</span><br>
+                    );<br><br>
+                    <span style="color: #94a3b8;">-- Mengambil Data</span><br>
+                    <span style="color: #f472b6;">SELECT</span> * <span style="color: #f472b6;">FROM</span> siswa <span style="color: #f472b6;">WHERE</span> jurusan = <span style="color: #fbbf24;">'RPL'</span>;
+                </div>
+            </section>
+
+            <!-- Tugas -->
+            <section class="task-card" style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 40px; border-radius: 20px;">
+                <h3 style="color: var(--dark); margin-bottom: 25px;"><i class="fas fa-tasks" style="color: var(--secondary); margin-right: 10px;"></i> Tugas Analogi ERD</h3>
+                
+                <p style="font-size: 14px; margin-bottom: 15px;"><strong>Hubungan Tabel Progres:</strong></p>
+                <div style="background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px;">
+                    <p style="margin: 0; font-size: 14px; color: #334155;">
+                        Pada tabel <strong>Progres</strong>, yang menjadi Foreign Key adalah:<br>
+                        <i class="fas fa-caret-right" style="color: var(--primary);"></i> <code>id_user</code> (menghubungkan ke tabel User)<br>
+                        <i class="fas fa-caret-right" style="color: var(--primary);"></i> <code>id_materi</code> (menghubungkan ke tabel Materi)
+                    </p>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <p><strong>Kuis: Tipe data teks pendek?</strong></p>
+                    <div style="background: #ecfdf5; border: 1px solid #10b981; padding: 12px; border-radius: 8px; font-weight: 600; color: #065f46;">
+                        Jawaban: C. VARCHAR
+                    </div>
+                </div>
+            </section>
+
+            <footer style="text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 12px;">
+                &copy; 2026 StudyHub Project. All Rights Reserved by ahdankerenabiezz.
+            </footer>
+        </article>
+    </div>
+</body>
+</html>

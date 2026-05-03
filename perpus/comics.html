@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub Library | Digital Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; overflow-x: hidden; }
+/* NAV FIX - Biar Gak Berantakan */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgb(15, 23, 42);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-brand { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
+        .nav-brand span { color: #4f46e5; }
+        
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .a-navbar { 
+            text-decoration: none; 
+            color: #64748b; 
+            font-size: 13px; 
+            font-weight: 600; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .a-navbar:hover { color: #4f46e5; }
+        .a-navbar i { font-size: 14px; transition: 0.3s; }
+        .a-navbar:hover i { transform: scale(1.2); }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .header { text-align: center; margin-bottom: 50px; }
+        .header h1 { font-size: 32px; font-weight: 800; color: #fff; }
+        .header p { color: #64748b; margin-top: 10px; }
+
+
+        /* Update CSS Tab agar tag <a> mengikuti style sebelumnya */
+.tab { 
+    padding: 8px 20px; 
+    background: rgba(255,255,255,0.05); 
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px; 
+    font-size: 13px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    white-space: nowrap;
+    text-decoration: none; /* Ilangin garis bawah link */
+    color: #94a3b8; /* Warna default teks */
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.tab:hover {
+    background: rgba(99, 102, 241, 0.2);
+    color: #fff;
+    border-color: #6366f1;
+}
+
+.tab.active { 
+    background: #6366f1; 
+    border-color: #6366f1; 
+    color: #fff;
+}
+        /* LIBRARY GRID */
+        .lib-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .book-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #6366f1;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .category-tag {
+            position: absolute; top: 15px; left: 15px;
+            padding: 5px 12px; background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px); border-radius: 8px;
+            font-size: 10px; font-weight: 700; color: #fff;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .book-info { padding: 20px; }
+        .book-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 5px; color: #fff; }
+        .book-info p { font-size: 12px; color: #94a3b8; }
+
+        .btn-read {
+            margin-top: 15px; width: 100%; padding: 10px;
+            background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 10px; color: #818cf8; font-size: 12px; font-weight: 700;
+            transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .book-card:hover .btn-read { background: #6366f1; color: #fff; }
+
+        footer { text-align: center; padding: 60px; color: #475569; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-brand">Study<span>Hub</span></a> 
+        <div class="nav-links">
+            <a href="#" class="a-navbar"><i class="fa-solid fa-envelope"></i> CONTACT</a>
+            <a href="#" class="a-navbar"><i class="fa-solid fa-circle-info"></i> CREDIT</a>
+            <a href="text.html" class="a-navbar" style="color: #4f46e5; font-weight: 700;">
+                <i class="fa-solid fa-arrow-left-long"></i> BACK
+            </a>
+        </div>
+    </nav>
+
+    <!-- SEMUA HARUS DI DALAM CONTAINER BIAR RAPI -->
+    <div class="container">
+        
+        <div class="header">
+            <h1>Comics</h1>
+            <p>Halaman berisi kumpulan Comics yang bisa untuk dibaca.</p>
+        </div>
+
+        <!-- TABS SEKARANG DI DALAM CONTAINER -->
+        <div class="tabs" style="display: flex; gap: 12px; margin-bottom: 40px; overflow-x: auto; padding-bottom: 10px;">
+            <a href="perpustakaan.html" class="tab active">All Books</a>
+            <a href="https://books.google.com/search?q=programming+books" target="_blank" class="tab">Textbooks</a>
+            <a href="https://www.webtoons.com/" target="_blank" class="tab">Comics</a>
+            <a href="https://mangaplus.shueisha.co.jp/" target="_blank" class="tab">Manga</a>
+            <a href="https://www.wattpad.com/" target="_blank" class="tab">Others</a>
+        </div>
+
+            <!-- GANTI BAGIAN <div class="lib-grid"> DENGAN YANG INI -->
+<div class="lib-grid">
+    
+    <!-- 1. LOOKISM (LEGENDARY VIRAL) -->
+    <a href="https://www.webtoons.com/id/drama/lookism/list?title_no=331" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/1b/3e/a0/1b3ea08672ba58093cd021781c3a2f11.jpg');">
+            <span class="category-tag">Action</span>
+        </div>
+        <div class="book-info">
+            <h3>Lookism</h3>
+            <p>Drama Sekolah & Aksi Viral</p>
+            <div class="btn-read"><i class="fa-solid fa-fire"></i> Baca Webtoon</div>
+        </div>
+    </a>
+
+    <!-- 2. THE SECRET OF ANGEL / TRUE BEAUTY (GLOBAL TREND) -->
+    <a href="https://www.webtoons.com/id/drama/the-secret-of-angel/list?title_no=1171" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/1200x/cd/e3/da/cde3dad44974b218318a55abf91294b9.jpg');">
+            <span class="category-tag">Romance</span>
+        </div>
+        <div class="book-info">
+            <h3>True Beauty</h3>
+            <p>Rahasia Riasan Sang Bintang</p>
+            <div class="btn-read"><i class="fa-solid fa-wand-magic-sparkles"></i> Baca Webtoon</div>
+        </div>
+    </a>
+
+    <!-- 3. WEAK HERO (ACTION TREND) -->
+    <a href="https://www.webtoons.com/id/action/weak-hero/list?title_no=1710" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/eb/ed/2c/ebed2c36e6aac3e84424df7bcc2ddb45.jpg');">
+            <span class="category-tag">Action</span>
+        </div>
+        <div class="book-info">
+            <h3>Weak Hero</h3>
+            <p>Strategi Tempur Siswa Jenius</p>
+            <div class="btn-read"><i class="fa-solid fa-hand-fist"></i> Baca Webtoon</div>
+        </div>
+    </a>
+
+    <!-- 4. TOWER OF GOD (FANTASY LEGEND) -->
+    <a href="https://www.webtoons.com/id/fantasy/tower-of-god/list?title_no=182" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/90/97/23/9097234d2a0341653d5e86b46c34f024.jpg');">
+            <span class="category-tag">Fantasy</span>
+        </div>
+        <div class="book-info">
+            <h3>Tower of God</h3>
+            <p>Naik ke Puncak Menara</p>
+            <div class="btn-read"><i class="fa-solid fa-mountain"></i> Baca Webtoon</div>
+        </div>
+    </a>
+
+    <!-- 5. MARRY MY HUSBAND (DRAMA VIRAL) -->
+    <a href="https://www.webtoons.com/id/drama/marry-my-husband/list?title_no=3868" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/4c/26/41/4c2641fdc1d1b06ab399c3c022a94612.jpg');">
+            <span class="category-tag">Drama</span>
+        </div>
+        <div class="book-info">
+            <h3>Marry My Husband</h3>
+            <p>Misi Balas Dendam Istri</p>
+            <div class="btn-read"><i class="fa-solid fa-hourglass-start"></i> Baca Webtoon</div>
+        </div>
+    </a>
+
+    <!-- 6. SWEET HOME (THRILLER TREND) -->
+    <a href="https://www.webtoons.com/id/thriller/sweet-home/list?title_no=1125" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/1200x/53/f8/c0/53f8c0dc808c7e7f71096ea664e67630.jpg');">
+            <span class="category-tag">Thriller</span>
+        </div>
+        <div class="book-info">
+            <h3>Sweet Home</h3>
+            <p>Monster Di Dalam Diri</p>
+            <div class="btn-read"><i class="fa-solid fa-ghost"></i> Baca Webtoon</div>
+        </div>
+    </a>
+
+    <!-- 7. KILLER PETER (NEW VIRAL) -->
+    <a href="https://www.webtoons.com/id/action/killer-peter/list?title_no=5939" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/8e/b8/3b/8eb83b366d8ae8e334207a473a193bac.jpg');">
+            <span class="category-tag">Action</span>
+        </div>
+        <div class="book-info">
+            <h3>Killer Peter</h3>
+            <p>Pembunuh Tua Jadi Muda</p>
+            <div class="btn-read"><i class="fa-solid fa-skull"></i> Baca Webtoon</div>
+        </div>
+    </a>
+
+    <!-- 8. WIND BREAKER (SPORTS TREND) -->
+    <a href="https://www.webtoons.com/id/sports/wind-breaker/list?title_no=439" target="_blank" class="book-card">
+        <div class="book-cover" style="background-image: url('https://i.pinimg.com/1200x/97/01/e3/9701e3753f769cf65254548adc6d53ef.jpg');">
+            <span class="category-tag">Sports</span>
+        </div>
+        <div class="book-info">
+            <h3>Wind Breaker</h3>
+            <p>Balap Sepeda & Street Life</p>
+            <div class="btn-read"><i class="fa-solid fa-bicycle"></i> Baca Webtoon</div>
+        </div>
+    </a>
+
+</div>
+        
+        </div>
+
+    </div> <!-- TUTUP CONTAINER -->
+
+    <footer>
+        &copy; 2026 StudyHub Project. All Rights Reserved by ahdankerenabiezz.
+    </footer>
+
+</body>

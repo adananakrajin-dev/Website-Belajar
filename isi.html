@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub Library | Digital Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; overflow-x: hidden; }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgb(15, 23, 42);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-brand { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
+        .nav-brand span { color: #4f46e5; }
+        
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .a-navbar { 
+            text-decoration: none; 
+            color: #64748b; 
+            font-size: 13px; 
+            font-weight: 600; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .a-navbar:hover { color: #4f46e5; }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .header { text-align: center; margin-bottom: 50px; }
+        .header h1 { font-size: 32px; font-weight: 800; color: #fff; transition: 0.3s; }
+        .header p { color: #64748b; margin-top: 10px; transition: 0.3s; }
+
+        .tabs { display: flex; gap: 12px; margin-bottom: 40px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
+        .tabs::-webkit-scrollbar { display: none; }
+        
+        .tab { 
+            padding: 8px 20px; 
+            background: rgba(255,255,255,0.05); 
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px; 
+            font-size: 13px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            white-space: nowrap;
+            color: #94a3b8; 
+            transition: 0.3s;
+        }
+        .tab:hover { background: rgba(99, 102, 241, 0.2); color: #fff; border-color: #6366f1; }
+        .tab.active { background: #6366f1; border-color: #6366f1; color: #fff; }
+
+        .lib-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .book-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #6366f1;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .category-tag {
+            position: absolute; top: 15px; left: 15px;
+            padding: 5px 12px; background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px); border-radius: 8px;
+            font-size: 10px; font-weight: 700; color: #fff;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .book-info { padding: 20px; }
+        .book-info h3 { font-size: 15px; font-weight: 700; margin-bottom: 5px; color: #fff; }
+        .book-info p { font-size: 12px; color: #94a3b8; line-height: 1.4; }
+
+        .btn-read {
+            margin-top: 15px; width: 100%; padding: 10px;
+            background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 10px; color: #818cf8; font-size: 12px; font-weight: 700;
+            transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .book-card:hover .btn-read { background: #6366f1; color: #fff; }
+
+        footer { text-align: center; padding: 60px; color: #475569; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-brand">Study<span>Hub</span></a> 
+        <div class="nav-links">
+            <a href="#" class="a-navbar"><i class="fa-solid fa-envelope"></i> CONTACT</a>
+            <a href="#" class="a-navbar"><i class="fa-solid fa-circle-info"></i> CREDIT</a>
+            <a href="dashboard.php" class="a-navbar" style="color: #4f46e5; font-weight: 700;">
+                <i class="fa-solid fa-arrow-left-long"></i> BACK
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1 id="pageTitle">Digital Library</h1>
+            <p id="pageDesc">Koleksi lengkap materi belajar dan hiburan viral untuk siswa SMKN 6.</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="filterContent('all', this)">All Content</button>
+            <button class="tab" onclick="filterContent('textbook', this)">Textbooks</button>
+            <button class="tab" onclick="filterContent('comic', this)">Webtoons</button>
+            <button class="tab" onclick="filterContent('manga', this)">Manga</button>
+            <button class="tab" onclick="filterContent('other', this)">Others</button>
+        </div>
+
+        <div class="lib-grid" id="bookContainer">
+            
+            <!-- === START TEXTBOOKS === -->
+            <a href="https://digilib.stekom.ac.id/assets/dokumen/ebook/feb_B8yDP9PqWAcqjJqdyULO5LyV7948c7lfhDCs9TeAmAjSp9wD-HzTTJs_1662348035.pdf" target="_blank" class="book-card textbook">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/bb/17/1f/bb171ff3c32d00aff7620053d6b192f2.jpg');">
+                    <span class="category-tag">RPL</span>
+                </div>
+                <div class="book-info">
+                    <h3>Web Development</h3>
+                    <p>Dasar HTML, CSS, & JavaScript</p>
+                    <div class="btn-read"><i class="fa-solid fa-code"></i> Baca Materi</div>
+                </div>
+            </a>
+
+            <a href="https://e-training.kemnaker.go.id/asset/directory/bm/434/Mengaplikasikan%20Prinsip%20Dasar%20Desain%20(Buku%20Informasi).pdf" target="_blank" class="book-card textbook">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/1200x/29/2a/5d/292a5d6f2e122cd8b41d80d3f64440ef.jpg');">
+                    <span class="category-tag">DKV</span>
+                </div>
+                <div class="book-info">
+                    <h3>Prinsip Desain</h3>
+                    <p>Layout, Tipografi & Teori Warna</p>
+                    <div class="btn-read"><i class="fa-solid fa-palette"></i> Buka Modul</div>
+                </div>
+            </a>
+
+            <a href="https://digilib.stekom.ac.id/assets/dokumen/ebook/feb_c287d8d15ed757294a6d1bfe80fcf85417020adf_1645069364.pdf" target="_blank" class="book-card textbook">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/1200x/b8/7d/5e/b87d5e0e68042a321c4cba9cff487ff8.jpg');">
+                    <span class="category-tag">Animasi</span>
+                </div>
+                <div class="book-info">
+                    <h3>Dunia Animasi</h3>
+                    <p>Teknik Motion & 3D Modeling</p>
+                    <div class="btn-read"><i class="fa-solid fa-film"></i> Pelajari</div>
+                </div>
+            </a>
+
+            <a href="https://digilib.stekom.ac.id/assets/dokumen/ebook/feb_preveb997_1643879437.pdf" target="_blank" class="book-card textbook">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/1200x/a9/d6/7a/a9d67ab7b0723da88fda689373dd4afb.jpg');">
+                    <span class="category-tag">Bisnis</span>
+                </div>
+                <div class="book-info">
+                    <h3>Digital Marketing</h3>
+                    <p>Strategi Bisnis & Ritel Modern</p>
+                    <div class="btn-read"><i class="fa-solid fa-cart-shopping"></i> Baca Buku</div>
+                </div>
+            </a>
+
+            <a href="https://digilib.stekom.ac.id/assets/dokumen/ebook/feb_preveb955_1643875032.pdf" target="_blank" class="book-card textbook">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/48/c7/02/48c70282021de4f20ae17a044db9369a.jpg');">
+                    <span class="category-tag">AKL</span>
+                </div>
+                <div class="book-info">
+                    <h3>Dasar Akuntansi</h3>
+                    <p>Siklus Akuntansi & Laporan Keuangan</p>
+                    <div class="btn-read"><i class="fa-solid fa-calculator"></i> Cek Materi</div>
+                </div>
+            </a>
+
+            <a href="https://repository.uinjkt.ac.id/dspace/bitstream/123456789/82890/1/MODUL%20MANAJEMEN%20PERKANTORAN.pdf" target="_blank" class="book-card textbook">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/32/21/39/32213931101976e91f09205027f84e5c.jpg');">
+                    <span class="category-tag">MP</span>
+                </div>
+                <div class="book-info">
+                    <h3>Manajemen Perkantoran</h3>
+                    <p>Administrasi & Komunikasi Bisnis</p>
+                    <div class="btn-read"><i class="fa-solid fa-briefcase"></i> Buka File</div>
+                </div>
+            </a>
+            <!-- === END TEXTBOOKS === -->
+
+            <!-- === START WEBTOONS === -->
+            <a href="https://www.webtoons.com/id/action/lookism/list?title_no=532" target="_blank" class="book-card comic">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/5a/f2/63/5af263cc9e414d4afd5eaa1f5c09f189.jpg');">
+                    <span class="category-tag">Action</span>
+                </div>
+                <div class="book-info">
+                    <h3>Lookism</h3>
+                    <p>Drama Sekolah & Aksi Viral</p>
+                    <div class="btn-read"><i class="fa-solid fa-fire"></i> Baca Webtoon</div>
+                </div>
+            </a>
+
+            <a href="https://www.webtoons.com/id/romance/goddess/list?title_no=1392" target="_blank" class="book-card comic">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/94/90/11/949011d1a4fe73d06b787bdc27034a91.jpg');">
+                    <span class="category-tag">Romance</span>
+                </div>
+                <div class="book-info">
+                    <h3>True Beauty</h3>
+                    <p>Rahasia Riasan Sang Bintang</p>
+                    <div class="btn-read"><i class="fa-solid fa-wand-magic-sparkles"></i> Baca Webtoon</div>
+                </div>
+            </a>
+
+            <a href="https://www.webtoons.com/id/action/weak-hero/list?title_no=1585" target="_blank" class="book-card comic">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/6b/7b/01/6b7b01d9fc9b6373cd92a9ec2c94dfc1.jpg');">
+                    <span class="category-tag">Action</span>
+                </div>
+                <div class="book-info">
+                    <h3>Weak Hero</h3>
+                    <p>Strategi Tempur Siswa Jenius</p>
+                    <div class="btn-read"><i class="fa-solid fa-hand-fist"></i> Baca Webtoon</div>
+                </div>
+            </a>
+
+            <a href="https://www.webtoons.com/id/fantasy/tower-of-god/list?title_no=749" target="_blank" class="book-card comic">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/90/97/23/9097234d2a0341653d5e86b46c34f024.jpg');">
+                    <span class="category-tag">Fantasy</span>
+                </div>
+                <div class="book-info">
+                    <h3>Tower of God</h3>
+                    <p>Naik ke Puncak Menara Misterius</p>
+                    <div class="btn-read"><i class="fa-solid fa-mountain"></i> Baca Webtoon</div>
+                </div>
+            </a>
+
+            <a href="https://www.webtoons.com/id/romance/marry-my-husband/list?title_no=3866" target="_blank" class="book-card comic">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/4c/26/41/4c2641fdc1d1b06ab399c3c022a94612.jpg');">
+                    <span class="category-tag">Drama</span>
+                </div>
+                <div class="book-info">
+                    <h3>Marry My Husband</h3>
+                    <p>Misi Balas Dendam Istri</p>
+                    <div class="btn-read"><i class="fa-solid fa-hourglass-start"></i> Baca Webtoon</div>
+                </div>
+            </a>
+
+            <a href="https://www.webtoons.com/id/horror/sweet-home/list?title_no=1286" target="_blank" class="book-card comic">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/1200x/53/f8/c0/53f8c0dc808c7e7f71096ea664e67630.jpg');">
+                    <span class="category-tag">Thriller</span>
+                </div>
+                <div class="book-info">
+                    <h3>Sweet Home</h3>
+                    <p>Survival Melawan Monster</p>
+                    <div class="btn-read"><i class="fa-solid fa-ghost"></i> Baca Webtoon</div>
+                </div>
+            </a>
+
+            <a href="https://www.webtoons.com/id/action/killer-peter/list?title_no=5846" target="_blank" class="book-card comic">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/8e/b8/3b/8eb83b366d8ae8e334207a473a193bac.jpg');">
+                    <span class="category-tag">Action</span>
+                </div>
+                <div class="book-info">
+                    <h3>Killer Peter</h3>
+                    <p>Pembunuh Legendaris Jadi Muda</p>
+                    <div class="btn-read"><i class="fa-solid fa-skull"></i> Baca Webtoon</div>
+                </div>
+            </a>
+
+            <a href="https://www.webtoons.com/id/slice-of-life/jadikan-aku-yang-pertama/ep-35-wind-breaker/viewer?title_no=4699&episode_no=35" target="_blank" class="book-card comic">
+                <div class="book-cover" style="background-image: url('https://i.pinimg.com/1200x/97/01/e3/9701e3753f769cf65254548adc6d53ef.jpg');">
+                    <span class="category-tag">Sports</span>
+                </div>
+                <div class="book-info">
+                    <h3>Wind Breaker</h3>
+                    <p>Aksi Balap Sepeda Jalanan</p>
+                    <div class="btn-read"><i class="fa-solid fa-bicycle"></i> Baca Webtoon</div>
+                </div>
+            </a>
+            <!-- === END WEBTOONS === -->
+
+             <!-- === START MANGA (TOTAL 8) === -->
+
+<!-- 1. SPY X FAMILY -->
+<a href="https://komiku.org/manga/spy-x-family/" class="book-card manga">
+    <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/ae/45/d1/ae45d176d65998bc12fad71284eec35c.jpg');">
+        <span class="category-tag">Manga</span>
+    </div>
+    <div class="book-info">
+        <h3>Spy x Family</h3>
+        <p>Misi Rahasia Keluarga Palsu</p>
+        <div class="btn-read"><i class="fa-solid fa-user-secret"></i> MangaPlus</div>
+    </div>
+</a>
+
+<!-- 2. KAIJU NO. 8 (ACTION TRENDING) -->
+<a href="https://komiku.org/manga/8kaijuu/" target="_blank" class="book-card manga">
+    <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/4b/fd/4e/4bfd4ecb0fb1730d4fbaaadcfef52703.jpg');">
+        <span class="category-tag">Manga</span>
+    </div>
+    <div class="book-info">
+        <h3>Kaiju No. 8</h3>
+        <p>Pasukan Pertahanan vs Monster</p>
+        <div class="btn-read"><i class="fa-solid fa-shield-virus"></i> MangaPlus</div>
+    </div>
+</a>
+
+<!-- 3. OSHI NO KO (DRAMA VIRAL) -->
+<a href="https://komiku.org/manga/oshi-no-ko/" target="_blank" class="book-card manga">
+    <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/af/4c/ea/af4cea8c9a21c13293971c6f3c3a2b8b.jpg');">
+        <span class="category-tag">Manga</span>
+    </div>
+    <div class="book-info">
+        <h3>Oshi No Ko</h3>
+        <p>Sisi Gelap Dunia Idol</p>
+        <div class="btn-read"><i class="fa-solid fa-star"></i> MangaPlus</div>
+    </div>
+</a>
+
+<!-- 4. BLUE LOCK (SPORTS INTENSE) -->
+<a href="https://komiku.org/manga/blue-lock/" target="_blank" class="book-card manga">
+    <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/b7/36/3b/b7363bb9c17d12935ab73850cb3d87ec.jpg');">
+        <span class="category-tag">Manga</span>
+    </div>
+    <div class="book-info">
+        <h3>Blue Lock</h3>
+        <p>Ambisi Striker Terhebat</p>
+        <div class="btn-read"><i class="fa-solid fa-futbol"></i> Baca Manga</div>
+    </div>
+</a>
+
+<!-- 5. JUJUTSU KAISEN (DARK FANTASY) -->
+<a href="https://komiku.org/manga/jujutsu-kaisen-indo/" target="_blank" class="book-card manga">
+    <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/37/4f/9d/374f9d99be7df66f5c0811b3bf928bfa.jpg');">
+        <span class="category-tag">Manga</span>
+    </div>
+    <div class="book-info">
+        <h3>Jujutsu Kaisen</h3>
+        <p>Pertempuran Melawan Kutukan</p>
+        <div class="btn-read"><i class="fa-solid fa-hand-sparkles"></i> MangaPlus</div>
+    </div>
+</a>
+
+<!-- 6. CHAINSAW MAN (MODERN CLASSIC) -->
+<a href="https://komiku.org/manga/123213-chainsaw-man/" target="_blank" class="book-card manga">
+    <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/4c/55/19/4c55195d179ed4fc0f48fdffca4c5641.jpg');">
+        <span class="category-tag">Manga</span>
+    </div>
+    <div class="book-info">
+        <h3>Chainsaw Man</h3>
+        <p>Pemburu Iblis Gergaji</p>
+        <div class="btn-read"><i class="fa-solid fa-saw"></i> MangaPlus</div>
+    </div>
+</a>
+
+<!-- 7. THE ANGEL NEXT DOOR (SWEET ROMANCE) -->
+<a href="https://komiku.org/manga/otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni-sareteita-ken/" target="_blank" class="book-card manga">
+    <div class="book-cover" style="background-image: url('https://i.pinimg.com/1200x/2a/fc/26/2afc26aec15c1fd9dd123d38e150df36.jpg');">
+        <span class="category-tag">Manga</span>
+    </div>
+    <div class="book-info">
+        <h3>The Angel Next Door</h3>
+        <p>Kisah Manis Tetangga Sebelah</p>
+        <div class="btn-read"><i class="fa-solid fa-heart"></i> Baca Manga</div>
+    </div>
+</a>
+
+<!-- 8. ONE PIECE (THE LEGEND) -->
+<a href="https://komiku.org/manga/komik-one-piece-indo/" target="_blank" class="book-card manga">
+    <div class="book-cover" style="background-image: url('https://i.pinimg.com/736x/93/fc/c4/93fcc413612bc6dfdfefcb47b5c8aa9a.jpg');">
+        <span class="category-tag">Manga</span>
+    </div>
+    <div class="book-info">
+        <h3>One Piece</h3>
+        <p>Petualangan Menjadi Raja Bajak Laut</p>
+        <div class="btn-read"><i class="fa-solid fa-anchor"></i> MangaPlus</div>
+    </div>
+</a>
+
+<!-- === END MANGA === -->
+            <!-- === END MANGA === -->
+
+            <!-- === START OTHERS: SASTRA & EDUKATIF (TOTAL 8) === -->
+
+<!-- 1. LAUT BERCERITA - LEILA S. CHUDORI -->
+<a href="https://id.scribd.com/document/541461133/Laut-Bercerita" target="_blank" class="book-card other">
+    <div class="book-cover" style="background-image: url('https://s3-ap-southeast-1.amazonaws.com/ebook-previews/40678/143505/1.jpg');">
+        <span class="category-tag">Novel Sejarah</span>
+    </div>
+    <div class="book-info">
+        <h3>Laut Bercerita</h3>
+        <p>Kisah Perjuangan & Kehilangan Aktivis '98</p>
+        <div class="btn-read"><i class="fa-solid fa-anchor"></i> Baca Detail</div>
+    </div>
+</a>
+
+<!-- 2. MADILOG - TAN MALAKA -->
+<a href="https://rowlandpasaribu.wordpress.com/wp-content/uploads/2013/09/tan-malaka-madilog.pdf" target="_blank" class="book-card other">
+    <div class="book-cover" style="background-image: url('https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1565428570l/51099226.jpg');">
+        <span class="category-tag">Pemikiran</span>
+    </div>
+    <div class="book-info">
+        <h3>Madilog</h3>
+        <p>Materialisme, Dialektika, & Logika</p>
+        <div class="btn-read"><i class="fa-solid fa-brain"></i> Buka Buku</div>
+    </div>
+</a>
+
+<!-- 3. BUMI MANUSIA - PRAMOEDYA ANANTA TOER -->
+<a href="https://mtsaluswahbergas.sch.id/wp-content/uploads/2024/11/Bumi-Manusia-by-Pramoedya-Ananta-Toer.pdf" target="_blank" class="book-card other">
+    <div class="book-cover" style="background-image: url('https://upload.wikimedia.org/wikipedia/ms/7/74/Bumimanusia_big.gif');">
+        <span class="category-tag">Sastra Klasik</span>
+    </div>
+    <div class="book-info">
+        <h3>Bumi Manusia</h3>
+        <p>Perlawanan Minke Melalui Tulisan</p>
+        <div class="btn-read"><i class="fa-solid fa-feather"></i> Baca Sastra</div>
+    </div>
+</a>
+
+<!-- 4. FILOSOFI TERAS - HENRY MANAMPIRING -->
+<a href="https://www.google.com/search?q=buku+filosofi+teras+pdf" target="_blank" class="book-card other">
+    <div class="book-cover" style="background-image: url('https://ebooks.gramedia.com/ebook-covers/106221/image_highres/BLK_FT21761806894098.jpg');">
+        <span class="category-tag">Self-Improvement</span>
+    </div>
+    <div class="book-info">
+        <h3>Filosofi Teras</h3>
+        <p>Stoisisme untuk Hidup yang Lebih Tenang</p>
+        <div class="btn-read"><i class="fa-solid fa-leaf"></i> Pelajari</div>
+    </div>
+</a>
+
+<!-- 5. CANTIK ITU LUKA - EKA KURNIAWAN -->
+<a href="https://www.google.com/search?q=buku+cantik+itu+luka+pdf" target="_blank" class="book-card other">
+    <div class="book-cover" style="background-image: url('https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1512961607i/37365703.jpg');">
+        <span class="category-tag">Sastra Modern</span>
+    </div>
+    <div class="book-info">
+        <h3>Cantik Itu Luka</h3>
+        <p>Epos Keluarga dalam Sejarah Indonesia</p>
+        <div class="btn-read"><i class="fa-solid fa-book-open"></i> Baca Detail</div>
+    </div>
+</a>
+
+<!-- 6. NEGERI 5 MENARA - A. FUADI -->
+<a href="https://www.google.com/search?q=buku+negeri+5+menara+pdf" target="_blank" class="book-card other">
+    <div class="book-cover" style="background-image: url('https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1249749162i/6688121.jpg');">
+        <span class="category-tag">Inspirasi</span>
+    </div>
+    <div class="book-info">
+        <h3>Negeri 5 Menara</h3>
+        <p>Mengejar Mimpi Lewat Mantra Man Jadda Wajada</p>
+        <div class="btn-read"><i class="fa-solid fa-mosque"></i> Buka Modul</div>
+    </div>
+</a>
+
+<!-- 7. SEBUAH SENI UNTUK BERSIKAP BODO AMAT - MARK MANSON -->
+<a href="https://www.google.com/search?q=buku+sebuah+seni+untuk+bersikap+bodo+amat+pdf" target="_blank" class="book-card other">
+    <div class="book-cover" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz0XhjshWqFhusrxZYoyhw5pz5eyIplCvNlA&s');">
+        <span class="category-tag">Psikologi</span>
+    </div>
+    <div class="book-info">
+        <h3>Seni Bodo Amat</h3>
+        <p>Pendekatan Waras untuk Hidup Bahagia</p>
+        <div class="btn-read"><i class="fa-solid fa-face-smile"></i> Baca Ringkasan</div>
+    </div>
+</a>
+
+<!-- 8. LASKAR PELANGI - ANDREA HIRATA -->
+<a href="https://www.google.com/search?q=buku+laskar+pelangi+pdf" target="_blank" class="book-card other">
+    <div class="book-cover" style="background-image: url('https://upload.wikimedia.org/wikipedia/id/8/8e/Laskar_pelangi_sampul.jpg');">
+        <span class="category-tag">Sastra Motivasi</span>
+    </div>
+    <div class="book-info">
+        <h3>Laskar Pelangi</h3>
+        <p>Kisah 10 Anak Mengejar Pendidikan</p>
+        <div class="btn-read"><i class="fa-solid fa-graduation-cap"></i> Baca Buku</div>
+    </div>
+</a>
+
+<!-- === END OTHERS === -->
+            <!-- === END OTHERS === -->
+
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 StudyHub Project. All Rights Reserved by ahdankerenabiezz.
+    </footer>
+
+    <script>
+        function filterContent(category, btn) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.book-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            const title = document.getElementById('pageTitle');
+            const desc = document.getElementById('pageDesc');
+            
+            if(category === 'textbook') {
+                title.innerText = "Textbooks";
+                desc.innerText = "Materi Dasar Kejurusan SMKN 6 Jakarta.";
+            } else if(category === 'comic') {
+                title.innerText = "Trending Webtoons";
+                desc.innerText = "Koleksi komik viral yang lagi rame dibahas.";
+            } else if(category === 'manga') {
+                title.innerText = "Manga Area";
+                desc.innerText = "Koleksi komik Jepang dari Komiku & source lainnya.";
+            } else if(category === 'other') {
+                title.innerText = "Other Stories";
+                desc.innerText = "Novel, cerpen, dan bacaan menarik lainnya.";
+            } else {
+                title.innerText = "Digital Library";
+                desc.innerText = "Koleksi lengkap materi belajar dan hiburan viral untuk siswa SMKN 6.";
+            }
+        }
+    </script>
+</body>
+</html>
